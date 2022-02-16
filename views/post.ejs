@@ -7,6 +7,6 @@
         <%= content%>
     </p>
     <form action="/delete" method="post">
-        <button name="heading" value="<%= id %>">Delete Post</button>
+        <button class="btn btn-danger" name="id" value="<%= id %>">Delete Post</button>
     </form>
     <%- include("partials/footer") -%>

@@ -4,7 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require('lodash');
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
 
 //variables
 const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -21,80 +21,80 @@ app.use(express.static("public"));
 mongoose.connect("mongodb://localhost:27017/BlogDB");
 
 //schemas
-const postSchema=mongoose.Schema({
-  title:{
+const postSchema = mongoose.Schema({
+  title: {
     type: String,
-    required:true
+    required: true
   },
-  content:{
+  content: {
     type: String,
-    required:true
+    required: true
   }
 });
 
 //make collections to store title and body
-const Post=mongoose.model("Posts",postSchema);
+const Post = mongoose.model("Posts", postSchema);
 
 //code starts
-app.get("/",function(req,res){
+app.get("/", function (req, res) {
 
-  Post.find(function(err,posts){
-    if(err) throw err;
+  Post.find(function (err, posts) {
+    if (err) throw err;
 
-    res.render("home",{
-      startingContent:homeStartingContent,
-      posts:posts
+    res.render("home", {
+      startingContent: homeStartingContent,
+      posts: posts
     });
   });
 });
 
-app.get("/about",function(req,res){
-  res.render("about",{aboutHeading:aboutContent});
+app.get("/about", function (req, res) {
+  res.render("about", { aboutHeading: aboutContent });
 })
 
-app.get("/contact",function(req,res){
-  res.render("contact",{contactHeading:contactContent});
+app.get("/contact", function (req, res) {
+  res.render("contact", { contactHeading: contactContent });
 })
 
-app.get("/compose",function(req,res){
+app.get("/compose", function (req, res) {
   res.render("compose");
 })
 
 //to set route for random page after post
-app.get("/posts/:postId",function(req,res){
-  const requiredPostId=req.params.postId;
-  Post.findOne({_id:requiredPostId},function(err,post){
-    if(err) throw err;
+app.get("/posts/:postId", function (req, res) {
+  const requiredPostId = req.params.postId;
+  Post.findOne({ _id: requiredPostId }, function (err, post) {
+    if (err) throw err;
     else
-    res.render("post",{heading:post.title,content:post.content,id:requiredPostId});
+      res.render("post", { heading: post.title, content: post.content, id: requiredPostId });
   })
 }
-) 
+)
 
-app.post("/delete",function(req,res){
-  const dltTitle=req.params.heading;
- console.log(dltTitle);
-  Post.findOneAndDelete({_id:dltTitle},function(err){
-    if(err) throw err;
+app.post("/delete", function (req, res) {
+  const dltTitle = req.body.id;
+ // console.log(dltTitle);
+  Post.findOneAndDelete({ _id: dltTitle }, function (err) {
+    if (err) throw err;
     else
-    res.redirect("/");
+      res.redirect("/");
   });
 });
 
-app.post("/compose",function(req,res){
-  const post= new Post({
+app.post("/compose", function (req, res) {
+  const post = new Post({
     title: req.body.postTitle,
     content: req.body.postBody
   });
   //save and redirect to home
-  post.save(function(err){
+  post.save(function (err) {
 
-    if (!err){
- 
+    if (!err) {
+
       res.redirect("/");
- 
+
     }
- 
+
   });
 })
 
