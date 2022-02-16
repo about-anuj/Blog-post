@@ -63,15 +63,23 @@ app.get("/compose",function(req,res){
 //to set route for random page after post
 app.get("/posts/:postId",function(req,res){
   const requiredPostId=req.params.postId;
-
-
   Post.findOne({_id:requiredPostId},function(err,post){
     if(err) throw err;
     else
-    res.render("post",{heading:post.title,content:post.content});
+    res.render("post",{heading:post.title,content:post.content,id:requiredPostId});
   })
 }
 ) 
+
+app.post("/delete",function(req,res){
+  const dltTitle=req.params.heading;
+ console.log(dltTitle);
+  Post.findOneAndDelete({_id:dltTitle},function(err){
+    if(err) throw err;
+    else
+    res.redirect("/");
+  });
+});
 
 app.post("/compose",function(req,res){
   const post= new Post({
