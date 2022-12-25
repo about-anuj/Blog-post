@@ -1,10 +1,8 @@
 # Blog-post
-• Secrets app is used to commit secrets anonymously and share them worldwide. Each user can post a single secret upon registration and login.
+• he Web app focuses on implementing Full Stack Web Development Using NodeJS and ExpressJS as backend along with the use of EJS for templating and layouts functionality   for better code structuring. Also used Lodash for working with URL and strings.
+• Technologies used are NodeJs, Ejs, and Express.
 
-• Technology used are NodeJs, Ejs, Express, Express-session (Managing sessions), Passport.js (Authentication system), Mongoose (MongoDB middleware).
-
-
- #Setup Instruction for local enviornment.
+ # Setup Instruction for local enviornment.
 
 1. Download the zip file.
 2. Extract it in local enviornment.
