@@ -3,8 +3,6 @@
 
 • Technology used are NodeJs, Ejs, Express, Express-session (Managing sessions), Passport.js (Authentication system), Mongoose (MongoDB middleware).
 
-Website Live at https://secrets2023.cyclic.app/
-
 #Setup Instruction
 
 Download the zip file.
