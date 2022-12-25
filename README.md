@@ -1,5 +1,5 @@
 # Blog-post
-• he Web app focuses on implementing Full Stack Web Development Using NodeJS and ExpressJS as backend along with the use of EJS for templating and layouts functionality   for better code structuring. Also used Lodash for working with URL and strings.
+• The Web app focuses on implementing Full Stack Web Development Using NodeJS and ExpressJS as backend along with the use of EJS for templating and layouts functionality   for better code structuring. Also used Lodash for working with URL and strings.
 • Technologies used are NodeJs, Ejs, and Express.
 
  # Setup Instruction for local enviornment.
