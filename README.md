@@ -4,7 +4,7 @@
 • Technology used are NodeJs, Ejs, Express, Express-session (Managing sessions), Passport.js (Authentication system), Mongoose (MongoDB middleware).
 
 
-#Setup Instruction
+ #Setup Instruction for local enviornment.
 
 1. Download the zip file.
 2. Extract it in local enviornment.
