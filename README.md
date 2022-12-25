@@ -6,8 +6,8 @@
 
 #Setup Instruction
 
-Download the zip file.
-Extract it in local enviornment.
-In the root directory run npm install.
-Then run "node app.js" in CLI.
-Open http://localhost:3000.
+1. Download the zip file.
+2. Extract it in local enviornment.
+3. In the root directory run npm install.
+4. Then run "node app.js" in CLI.
+5. Open http://localhost:3000.
